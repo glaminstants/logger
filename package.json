@@ -1,0 +1,43 @@
+{
+  "name": "@glaminstants/node-package-template",
+  "repository": "https://github.com/glaminstants/node-package-template",
+  "author": "Fábio Ferreira <ffcfpten@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "node-package-template": "dist/index.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "yarn eslint --ignore-path .gitignore './src/*.{js,ts}'",
+    "format": "yarn prettier --write",
+    "prebuild": "yarn clean",
+    "build": "yarn tsc",
+    "prebuild:watch": "yarn clean",
+    "build:watch": "yarn tsc --watch",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@glaminstants/tsconfigs": "^1.1.4",
+    "semantic-release": "^22.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "3.0.3",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "src/*.{js,ts}": "yarn lint"
+  }
+}
