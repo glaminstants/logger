@@ -1,6 +1,6 @@
 {
   "name": "@glaminstants/logger",
-  "repository": "git@github.com:glaminstants/node-package-template.git",
+  "repository": "git@github.com:glaminstants/logger.git",
   "author": "Fábio Ferreira <ffcfpten@gmail.com>",
   "license": "MIT",
   "files": [
