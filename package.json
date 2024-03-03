@@ -1,6 +1,6 @@
 {
-  "name": "@glaminstants/node-package-template",
-  "repository": "https://github.com/glaminstants/node-package-template",
+  "name": "@glaminstants/logger",
+  "repository": "https://github.com/glaminstants/logger",
   "author": "Fábio Ferreira <ffcfpten@gmail.com>",
   "license": "MIT",
   "files": [
@@ -21,11 +21,19 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@glaminstants/tsconfigs": "^1.1.4",
-    "semantic-release": "^22.0.5"
+    "@types/uuid": "^9.0.8",
+    "dotenv": "^16.4.5",
+    "isomorphic-fetch": "^3.0.0",
+    "object-hash": "^3.0.0",
+    "semantic-release": "^22.0.5",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
   },
   "devDependencies": {
+    "@glaminstants/tsconfigs": "^1.2.0",
+    "@types/isomorphic-fetch": "^0.0.39",
     "@types/node": "^20.8.7",
+    "@types/object-hash": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "eslint": "^8.51.0",
