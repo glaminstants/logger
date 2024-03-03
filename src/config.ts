@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export const APP_NAME = process.env.APP_NAME || "";
+export const APP_NAME = process.env.APP_NAME || "N/A";
 export const APP_ENVIRONMENT = process.env.ENVIRONMENT || "N/A";
 
 const DATADOG_API_KEY = process.env.DATADOG_API_KEY || "";
