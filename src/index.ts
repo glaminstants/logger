@@ -9,13 +9,13 @@ import { isDatadogConfigurationValid } from "./config";
 dotenv.config();
 
 export type AppLoggerArgs = {
-  initialTxId: string;
+  initialTxId?: string;
   initialTxType?: string;
 };
 
 function createAppLogger({
   initialTxId = generateTxId(),
-  initialTxType = undefined,
+  initialTxType,
 }: AppLoggerArgs): TxLogger {
   const logger = spawnWinston({
     initialTxId,
