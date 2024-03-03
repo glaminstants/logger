@@ -8,12 +8,17 @@ dotenv.config();
 export type EventFormatterArgs = {
   txId: string;
   txType?: string;
+  appName?: string;
 };
 
-export function getEventFormatter({ txId, txType }: EventFormatterArgs) {
+export function getEventFormatter({
+  txId,
+  txType,
+  appName,
+}: EventFormatterArgs) {
   const customFormatter = winston.format((logInfo: EventBase) => {
     logInfo.timestamp = Date.now();
-    logInfo.appName = CONFIGURATION.appName;
+    logInfo.appName = appName || CONFIGURATION.appName;
     logInfo.appEnvironment = CONFIGURATION.appEnvironment;
     logInfo.txId = txId;
     logInfo.txType = txType;
@@ -28,22 +33,25 @@ export function getEventFormatter({ txId, txType }: EventFormatterArgs) {
 }
 
 export type WinstonLoggerArgs = {
-  initialTxId: string;
-  initialTxType?: string;
+  txId: string;
+  txType?: string;
+  appName?: string;
   opts?: winston.LoggerOptions;
 };
 
 export function spawnWinston({
-  initialTxId,
-  initialTxType,
+  txId,
+  txType,
+  appName,
   opts,
 }: WinstonLoggerArgs) {
   return winston.createLogger({
     level: "info",
     exitOnError: false,
     format: getEventFormatter({
-      txId: initialTxId,
-      txType: initialTxType,
+      txId,
+      txType,
+      appName,
     }),
     transports: [new winston.transports.Console()],
     ...opts,
