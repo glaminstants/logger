@@ -18,6 +18,8 @@ In order to configure the HTTP transport layer, there are a few environment vari
 | ENVIRONMENT     | Environment (e.g. `staging`, `production`) |
 | DATADOG_API_KEY | Datadog's API key                          |
 
+When using [`createAppLogger`](./src/index.ts#13), the transaction ID (`txId`), transaction type (`txType`) and application name can be passed (`appName`) in order to take the greatest advantage of this package capabilities.
+
 ## Setup for local dev
 
 ```bash
