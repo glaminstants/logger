@@ -1,8 +1,14 @@
-# typescript-package-template
+# logger
 
-This is the template for a simple TypeScript private package to be released & stored in GitHub using version tags.
+This is the logger package for all TypeScript projects in Glaminstants.
 
-## Setup
+## Use it
+
+```bash
+yarn add @glaminstants/logger
+```
+
+## Setup for local dev
 
 ```bash
 yarn
