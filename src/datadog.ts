@@ -2,7 +2,7 @@ import fetch from "isomorphic-fetch";
 import { EventBase } from "./types";
 import { CONFIGURATION } from "./config";
 
-const INGEST_URL = `${CONFIGURATION.datadogApiHost}/api/v2/logs?dd-api-key=${CONFIGURATION.datadogApiKey}&ddsource=aws&service=${CONFIGURATION.appName}`;
+const INGEST_URL = `${CONFIGURATION.datadogApiHost}/api/v2/logs?dd-api-key=${CONFIGURATION.datadogApiKey}&ddsource=nodejs&service=${CONFIGURATION.appName}`;
 
 export async function sendEventToDatadog<Event extends EventBase>(
   eventData: Event
