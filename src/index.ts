@@ -1,14 +1,18 @@
 import dotenv from "dotenv";
 import { generateTxId } from "./utils";
 import { TxLogger, EventParams, EventBase } from "./types";
-import { WinstonLoggerArgs, getEventFormatter, spawnWinston } from "./winston";
+import { getEventFormatter, spawnWinston } from "./winston";
 import { sendEventToDatadog } from "./datadog";
 import hash from "object-hash";
 import { isDatadogConfigurationValid } from "./config";
 
 dotenv.config();
 
-export type AppLoggerArgs = WinstonLoggerArgs;
+export type AppLoggerArgs = {
+  txId: string;
+  txType?: string;
+  appName?: string;
+};
 
 function createAppLogger({
   txId = generateTxId(),
