@@ -12,7 +12,7 @@ export async function sendEventToDatadog<Event extends EventBase>(
     body: JSON.stringify(eventData),
   })
     .then((res) => {
-      if ([200, 204].includes(res.status)) {
+      if ([200, 202, 204].includes(res.status)) {
         return true;
       }
 
