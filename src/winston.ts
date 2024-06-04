@@ -1,9 +1,6 @@
 import winston from "winston";
-import dotenv from "dotenv";
 import { EventBase } from "./types";
 import { CONFIGURATION } from "./config";
-
-dotenv.config();
 
 export type EventFormatterArgs = {
   txId: string;
@@ -16,7 +13,7 @@ export function getEventFormatter({
   txType,
   appName,
 }: EventFormatterArgs) {
-  const customFormatter = winston.format((logInfo: EventBase) => {
+  const metadataInjector = winston.format((logInfo: EventBase) => {
     logInfo.timestamp = Date.now();
     logInfo.appName = appName || CONFIGURATION.appName;
     logInfo.appEnvironment = CONFIGURATION.appEnvironment;
@@ -27,7 +24,7 @@ export function getEventFormatter({
   });
 
   return winston.format.combine(
-    customFormatter(),
+    metadataInjector(),
     winston.format.prettyPrint()
   );
 }
