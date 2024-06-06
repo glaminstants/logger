@@ -1,5 +1,6 @@
 {
   "name": "@glaminstants/logger",
+  "type": "module",
   "repository": "https://github.com/glaminstants/logger",
   "author": "Fábio Ferreira <ffcfpten@gmail.com>",
   "license": "MIT",
@@ -30,7 +31,7 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "@glaminstants/tsconfigs": "^1.2.0",
+    "@glaminstants/tsconfigs": "^1.4.0",
     "@types/isomorphic-fetch": "^0.0.39",
     "@types/node": "^20.8.7",
     "@types/object-hash": "^3.0.6",

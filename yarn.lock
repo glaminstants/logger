@@ -87,10 +87,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@glaminstants/tsconfigs@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@glaminstants/tsconfigs/-/tsconfigs-1.2.0.tgz#7e12b97086e9359eb4e7bd6dfcf6411ea2151a60"
-  integrity sha512-f0Zeh2Ai1fxr0KGzDPQj0fmAOjZrC9uR76sNDp/zj6YQAQA3IXvjZ+BXvxCYrZe8fDUnX/CMIfnSSsqKSiM50w==
+"@glaminstants/tsconfigs@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@glaminstants/tsconfigs/-/tsconfigs-1.4.0.tgz#105859588cce0fbc9cf4540ebbf2fce620c78c2f"
+  integrity sha512-3vpSr43HXH1X454m+cx67pa7PXhEWOjzQxCYtfAnMCo41exgBVhmT5dIpSe80ZJOjOYCHUYG6zk5PdW5ae2WEA==
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
