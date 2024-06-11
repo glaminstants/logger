@@ -1,10 +1,10 @@
 import fetch from "isomorphic-fetch";
-import { EventBase } from "./types";
-import { CONFIGURATION } from "./config";
+import { TxLoggerBaseEvent } from "./types";
+import { Configuration } from "./config";
 
-const INGEST_URL = `${CONFIGURATION.datadogApiHost}/api/v2/logs?dd-api-key=${CONFIGURATION.datadogApiKey}&ddsource=nodejs&service=${CONFIGURATION.appName}`;
+const INGEST_URL = `${Configuration.datadogApiHost}/api/v2/logs?dd-api-key=${Configuration.datadogApiKey}&ddsource=nodejs&service=${Configuration.appName}`;
 
-export async function sendEventToDatadog<Event extends EventBase>(
+export async function sendEventToDatadog<Event extends TxLoggerBaseEvent>(
   eventData: Event
 ) {
   return fetch(INGEST_URL, {

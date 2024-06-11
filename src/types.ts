@@ -1,8 +1,8 @@
-export interface EventParams {
+export interface TxLoggerEventParams {
   [key: string]: unknown;
 }
 
-export interface EventBase {
+export interface TxLoggerBaseEvent {
   appName: string;
   appEnvironment: string;
   txId: string;
@@ -19,16 +19,16 @@ export type TxLogger = {
   end: () => Promise<void>;
 
   // Producer methods
-  info: (eventType: string, eventParams?: EventParams) => void;
+  info: (eventType: string, eventParams?: TxLoggerEventParams) => void;
   warn: (
     eventType: string,
     warnMessage: string,
-    eventParams?: EventParams
+    eventParams?: TxLoggerEventParams
   ) => void;
-  debug: (eventType: string, eventParams?: EventParams) => void;
+  debug: (eventType: string, eventParams?: TxLoggerEventParams) => void;
   error: (
     eventType: string,
     errorMessage: string,
-    eventParams?: EventParams
+    eventParams?: TxLoggerEventParams
   ) => void;
 };

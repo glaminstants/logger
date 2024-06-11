@@ -1,8 +1,8 @@
 import winston from "winston";
-import { EventBase } from "./types";
-import { CONFIGURATION } from "./config";
+import { Configuration } from "./config";
+import { TxLoggerBaseEvent } from "./types";
 
-export type EventFormatterArgs = {
+export type EventFormatterParameters = {
   txId: string;
   txType?: string;
   appName?: string;
@@ -12,15 +12,16 @@ export function getEventFormatter({
   txId,
   txType,
   appName,
-}: EventFormatterArgs) {
-  const metadataInjector = winston.format((logInfo: EventBase) => {
-    logInfo.timestamp = Date.now();
-    logInfo.appName = appName || CONFIGURATION.appName;
-    logInfo.appEnvironment = CONFIGURATION.appEnvironment;
-    logInfo.txId = txId;
-    logInfo.txType = txType;
-
-    return logInfo;
+}: EventFormatterParameters) {
+  const metadataInjector = winston.format((logInfo): TxLoggerBaseEvent => {
+    return {
+      ...logInfo,
+      timestamp: Date.now(),
+      appName: appName || Configuration.appName,
+      appEnvironment: Configuration.appEnvironment,
+      txId: txId,
+      txType: txType,
+    };
   });
 
   return winston.format.combine(
