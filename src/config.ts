@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export const APP_NAME = process.env.APP_NAME || "N/A";
+export const APP_NAME: string = process.env.APP_NAME || "N/A";
 export const APP_ENVIRONMENT = process.env.ENVIRONMENT || "N/A";
 
 const DATADOG_API_KEY = process.env.DATADOG_API_KEY || "";
@@ -15,7 +15,7 @@ export type LoggerConfiguration = {
   appEnvironment: string;
 };
 
-export const CONFIGURATION: LoggerConfiguration = {
+export const Configuration: LoggerConfiguration = {
   datadogApiHost: DATADOG_API_HOST,
   datadogApiKey: DATADOG_API_KEY,
   appName: APP_NAME,
@@ -23,7 +23,7 @@ export const CONFIGURATION: LoggerConfiguration = {
 };
 
 export function isDatadogConfigurationValid() {
-  return Object.keys(CONFIGURATION).every((key: keyof LoggerConfiguration) => {
-    return CONFIGURATION[key] && CONFIGURATION[key].length > 0;
+  return Object.keys(Configuration).every((key: keyof LoggerConfiguration) => {
+    return Configuration[key] && Configuration[key].length > 0;
   });
 }

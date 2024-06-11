@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { generateTxId } from "./utils";
-import { TxLogger, EventParams, EventBase } from "./types";
+import { TxLogger, TxLoggerEventParams, TxLoggerBaseEvent } from "./types";
 import { getEventFormatter, spawnWinston } from "./winston";
 import { sendEventToDatadog } from "./datadog";
 import hash from "object-hash";
@@ -28,7 +28,7 @@ function createAppLogger({
   const EVENT_QUEUE = new Map<string, Promise<boolean>>();
 
   if (isDatadogConfigurationValid()) {
-    logger.on("data", (eventData: EventBase) => {
+    logger.on("data", (eventData: TxLoggerBaseEvent) => {
       const eventDataHash = hash(eventData);
 
       EVENT_QUEUE.set(
@@ -91,4 +91,4 @@ function createAppLogger({
   };
 }
 
-export { TxLogger, EventParams, createAppLogger, generateTxId };
+export { TxLogger, TxLoggerEventParams, createAppLogger, generateTxId };
