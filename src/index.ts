@@ -17,7 +17,7 @@ export type AppLoggerArgs = {
 function createAppLogger({
   txId = generateTxId(),
   txType = undefined,
-  appName,
+  appName = "N/A",
 }: AppLoggerArgs): TxLogger {
   const logger = spawnWinston({
     txId,
@@ -33,7 +33,7 @@ function createAppLogger({
 
       EVENT_QUEUE.set(
         eventDataHash,
-        sendEventToDatadog(eventData).finally(() => {
+        sendEventToDatadog(eventData, appName).finally(() => {
           EVENT_QUEUE.delete(eventDataHash);
         })
       );
