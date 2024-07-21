@@ -6,7 +6,7 @@ export const APP_NAME: string = process.env.APP_NAME || "N/A";
 export const APP_ENVIRONMENT = process.env.ENVIRONMENT || "N/A";
 
 const DATADOG_API_KEY = process.env.DATADOG_API_KEY || "";
-const DATADOG_API_HOST = "http-intake.logs.datadoghq.eu";
+const DATADOG_API_HOST = "https://http-intake.logs.datadoghq.eu";
 
 export type LoggerConfiguration = {
   datadogApiHost: string;

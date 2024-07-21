@@ -2,12 +2,13 @@ import fetch from "isomorphic-fetch";
 import { TxLoggerBaseEvent } from "./types";
 import { Configuration } from "./config";
 
-const INGEST_URL = `${Configuration.datadogApiHost}/api/v2/logs?dd-api-key=${Configuration.datadogApiKey}&ddsource=nodejs&service=${Configuration.appName}`;
+const INGEST_URL = `${Configuration.datadogApiHost}/api/v2/logs?dd-api-key=${Configuration.datadogApiKey}&ddsource=nodejs`;
 
 export async function sendEventToDatadog<Event extends TxLoggerBaseEvent>(
-  eventData: Event
+  eventData: Event,
+  appName: string
 ) {
-  return fetch(INGEST_URL, {
+  return fetch(`${INGEST_URL}&service=${appName}`, {
     method: "POST",
     body: JSON.stringify(eventData),
   })
@@ -18,7 +19,8 @@ export async function sendEventToDatadog<Event extends TxLoggerBaseEvent>(
 
       throw new Error("Result is unknown");
     })
-    .catch(() => {
+    .catch((ex) => {
+      console.error(`Logger exception: ${ex}`);
       return false;
     });
 }
