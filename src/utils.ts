@@ -5,13 +5,13 @@ export function generateTxId(): string {
 }
 
 export async function asyncActionWithLogging<TResult = unknown>(
-  fn: Promise<TResult>,
+  fn: () => Promise<TResult>,
   onSuccess: (result: TResult) => void,
   onError: (err: unknown) => void,
   rethrow = true
 ) {
   try {
-    const result = await fn;
+    const result = await fn();
     onSuccess(result);
 
     return result;
